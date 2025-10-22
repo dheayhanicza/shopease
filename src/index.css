@@ -1,10 +1,123 @@
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f6f8fa;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; }
-.container { padding: 16px; }
-.flex { display: flex; gap: 12px; }
-.card { border: 1px solid #ddd; padding: 12px; border-radius: 6px; background: #fff; }
+
+/* Utility */
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+.flex { display: flex; gap: 12px; align-items: center; }
+.grid { display: grid; gap: 12px; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #0f5132;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.08);
+}
+header h2 { margin: 0; font-size: 20px; }
+header nav a {
+  color: #fff;
+  margin-left: 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+header nav a:hover { opacity: 0.9; }
+
+/* Landing banner */
+.landing {
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing .card {
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 28px;
+  border-radius: 8px;
+  text-align: center;
+}
+.landing h1 { margin: 0 0 8px 0; font-size: 32px; }
+.landing p { margin: 0 0 12px 0; font-size: 16px; }
+
+/* Buttons */
+button {
+  border: none;
+  background: #198754;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+button[disabled] {
+  background: #9bb7a8;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+a.button-like {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #198754;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Cards & Products */
+.card {
+  background: #fff;
+  border: 1px solid #e6e9ec;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(15,21,30,0.02);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.product-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.product-card h4 { margin: 8px 0 6px 0; font-size: 16px; }
+.product-card p { margin: 0 0 8px 0; color: #555; }
+
+/* Cart page */
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.cart-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 6px; }
+.qty-controls button { padding: 6px 10px; margin: 0 6px; }
+.cart-summary {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ec;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  header h2 { font-size: 18px; }
+  .landing h1 { font-size: 22px; }
+}
